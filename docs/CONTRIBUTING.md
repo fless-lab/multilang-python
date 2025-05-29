@@ -34,7 +34,7 @@ To add a language:
    ```
 2. Clone the repository for development:
    ```bash
-   git clone https://github.com/<your-username>/multilang-python.git
+   git clone https://github.com/fless-lab/multilang-python.git
    cd multilang-python
    ```
 3. Run:
@@ -54,7 +54,7 @@ See `src/multilang_python/languages/template.json` and [USER_GUIDE.md](USER_GUID
 To contribute code:
 1. Fork and clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/multilang-python.git
+   git clone https://github.com/fless-lab/multilang-python.git
    cd multilang-python
    ```
 2. Create a branch:

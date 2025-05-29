@@ -1,6 +1,6 @@
 # Multilang-Python
 
-[![Tests](https://github.com/<your-username>/multilang-python/actions/workflows/test.yml/badge.svg)](https://github.com/<your-username>/multilang-python/actions/workflows/test.yml)
+[![Tests](https://github.com/fless-lab/multilang-python/actions/workflows/test.yml/badge.svg)](https://github.com/fless-lab/multilang-python/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **multilang-python** is an open-source transpileur that enables Python code to be written in any native language by translating localized keywords and built-in functions (e.g., French `définir` to `def`, `afficher` to `print`) into standard Python. Designed for accessibility, it empowers non-English-speaking communities, particularly in education, to code in their mother tongue. Built with a modular, extensible, and scalable architecture using only the Python standard library, it supports all Python keywords and built-ins.
