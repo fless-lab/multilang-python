@@ -1,0 +1,55 @@
+version: 2
+updates:
+  # GitHub Actions: Monitor workflow actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    reviewers:
+      - "fless-lab"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps):"
+
+  # Python: Monitor development dependencies in requirements/dev.txt
+  - package-ecosystem: "pip"
+    directory: "/requirements"
+    schedule:
+      interval: "monthly"
+      time: "09:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "python-dev"
+    reviewers:
+      - "fless-lab"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(deps-dev):"
+    ignore:
+      - dependency-name: "*"
+    allow:
+      - dependency-type: "development"
+
+  # Docker: Monitor Dockerfile base image
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "docker"
+    reviewers:
+      - "fless-lab"
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "chore(deps):"
