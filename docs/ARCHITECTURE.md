@@ -273,5 +273,3 @@ See `docs/CONTRIBUTING.md` for details.
 - IDE plugins (`plugins/vscode/`, `plugins/pycharm/`).
 - C++ migration for performance-critical components.
 - Support for third-party library translations.
-
-This architecture is designed to be professional, scalable, and collaborative, meeting the standards of top-tier software projects.
