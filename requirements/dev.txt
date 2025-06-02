@@ -3,3 +3,4 @@ pytest-cov>=4.0
 flake8>=6.0 
 black>=23.0 
 isort>=5.0
+jsonschema>=4.23.0
