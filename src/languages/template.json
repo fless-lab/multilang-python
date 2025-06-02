@@ -1,0 +1,11 @@
+{
+  "keywords": [
+    "def", "if", "else", "elif", "for", "while", "return", "import", "from",
+    "class", "try", "except", "finally", "raise", "with", "as", "pass",
+    "break", "continue", "True", "False", "None", "and", "or", "not", "in", "is"
+  ],
+  "builtins": [
+    "print", "len", "range", "int", "str", "float", "list", "dict", "set",
+    "tuple", "bool", "abs", "max", "min", "sum", "open", "type"
+  ]
+}
