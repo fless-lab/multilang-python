@@ -1,0 +1,1 @@
+include src/multilang_python/languages/.json include src/multilang_python/languages/validate_lang.py include examples/**/.py include examples/**/*.md
