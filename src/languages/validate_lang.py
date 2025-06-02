@@ -1,25 +1,42 @@
 import json
-import sys
+import jsonschema
 import os
-from multilang_python.core.validator import LanguageValidator
-from multilang_python.core.errors import ValidationError
+import sys
+from multilang_python.core.utils import read_file
 
-def validate_language_file(file_path):
-    """Validate a language JSON file."""
-    if not os.path.exists(file_path):
-        print(f"Error: File {file_path} not found.")
-        sys.exit(1)
+def validate_language_file(lang_file):
+    """Validate a language JSON file against schema and template."""
+    # Load schema
+    schema_file = os.path.join(os.path.dirname(__file__), 'schema.json')
+    schema = read_file(schema_file, as_json=True)
 
-    with open(file_path, 'r', encoding='utf-8') as f:
-        lang_data = json.load(f)
+    # Load template
+    template_file = os.path.join(os.path.dirname(__file__), 'template.json')
+    template = read_file(template_file, as_json=True)
 
-    validator = LanguageValidator()
+    # Load language file
     try:
-        validator.validate(lang_data)
-        print(f"Language file {file_path} is valid.")
-    except ValidationError as e:
-        print(f"Validation error: {e}")
+        lang_data = read_file(lang_file, as_json=True)
+    except json.JSONDecodeError:
+        print(f"Error: {lang_file} is not a valid JSON file.")
         sys.exit(1)
+
+    # Validate against schema
+    try:
+        jsonschema.validate(instance=lang_data, schema=schema)
+    except jsonschema.ValidationError as e:
+        print(f"Error: {lang_file} is invalid: {e.message}")
+        sys.exit(1)
+
+    # Validate mappings against template
+    for category in ['keywords', 'builtins']:
+        template_values = template.get(category, [])
+        for native, python in lang_data.get(category, {}).items():
+            if python not in template_values:
+                print(f"Error: {lang_file} contains invalid {category} mapping: '{native}' -> '{python}'")
+                sys.exit(1)
+
+    print(f"Language file {lang_file} is valid.")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
