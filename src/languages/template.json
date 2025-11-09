@@ -2,10 +2,18 @@
   "keywords": [
     "def", "if", "else", "elif", "for", "while", "return", "import", "from",
     "class", "try", "except", "finally", "raise", "with", "as", "pass",
-    "break", "continue", "True", "False", "None", "and", "or", "not", "in", "is"
+    "break", "continue", "True", "False", "None", "and", "or", "not", "in", "is",
+    "assert", "async", "await", "del", "global", "lambda", "nonlocal", "yield"
   ],
   "builtins": [
     "print", "len", "range", "int", "str", "float", "list", "dict", "set",
-    "tuple", "bool", "abs", "max", "min", "sum", "open", "type"
+    "tuple", "bool", "abs", "max", "min", "sum", "open", "type", "input",
+    "enumerate", "zip", "sorted", "map", "filter", "all", "any", "round",
+    "reversed", "format", "ord", "chr", "bin", "hex", "oct", "pow", "divmod",
+    "hash", "id", "isinstance", "issubclass", "super", "property", "staticmethod",
+    "classmethod", "slice", "bytes", "bytearray", "memoryview", "complex",
+    "frozenset", "vars", "dir", "help", "iter", "next", "callable", "getattr",
+    "setattr", "hasattr", "delattr", "eval", "exec", "compile", "globals",
+    "locals", "repr", "ascii", "object"
   ]
 }
