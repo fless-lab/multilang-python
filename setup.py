@@ -13,7 +13,7 @@ setup(
     author="Abdou-Raouf ATARMLA",
     author_email="achilleatarmla@gmail.com",
     description="A transpileur for Python in native languages",
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/fless-lab/multilang-python",
     license="MIT",
