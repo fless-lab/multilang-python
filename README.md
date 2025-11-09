@@ -241,6 +241,26 @@ Every language includes:
 - **Type conversions**: `int`, `float`, `str`, `bool`, `list`, `dict`, etc.
 - **Advanced functions**: `map`, `filter`, `zip`, `sorted`, `lambda`, etc.
 
+### Standard Library Wrappers (Optional)
+Use native-language wrappers for Python's standard library:
+
+```python
+# multilang-python: fr
+depuis multilang_python.stdlib.fr importer systeme, json_fr
+
+# Use French names for stdlib functions!
+si systeme.chemin_existe("fichier.txt"):
+    donnees = json_fr.charger('{"nom": "test"}')
+    afficher(donnees)
+```
+
+**Available wrappers:**
+- `systeme` → `os` module (file/directory operations)
+- `json_fr` → `json` module (JSON parsing)
+- `sys_fr` → `sys` module (system operations)
+
+See [STDLIB_WRAPPERS.md](docs/STDLIB_WRAPPERS.md) for complete documentation.
+
 ### Performance Optimization
 - **Caching**: Translated code is cached for instant re-execution
 - **Efficient regex**: Optimized pattern matching
