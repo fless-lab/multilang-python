@@ -31,11 +31,11 @@ Nous fournissons des **wrappers optionnels** qui donnent des noms français (ou 
 
 ```python
 # multilang-python: fr
-depuis multilang_python.stdlib.fr importer systeme, json_fr
+depuis multilang_python.stdlib.fr importer systeme, json
 
 # Maintenant vous pouvez utiliser des noms français !
 si systeme.chemin_existe("fichier.txt"):
-    donnees = json_fr.charger('{"nom": "test"}')
+    donnees = json.charger('{"nom": "test"}')
     afficher(donnees)
 ```
 
@@ -52,19 +52,19 @@ systeme.supprimer_fichier(chemin)  # os.remove()
 systeme.obtenir_cwd()              # os.getcwd()
 ```
 
-#### `json_fr` (wrapper pour `json`)
+#### `json` (wrapper pour `json`)
 ```python
-json_fr.charger(texte)             # json.loads()
-json_fr.charger_fichier(fichier)   # json.load()
-json_fr.dumper(obj)                # json.dumps()
-json_fr.dumper_fichier(obj, f)     # json.dump()
+json.charger(texte)             # json.loads()
+json.charger_fichier(fichier)   # json.load()
+json.dumper(obj)                # json.dumps()
+json.dumper_fichier(obj, f)     # json.dump()
 ```
 
-#### `sys_fr` (wrapper pour `sys`)
+#### `sys` (wrapper pour `sys`)
 ```python
-sys_fr.quitter(code)               # sys.exit()
-sys_fr.arguments()                 # sys.argv
-sys_fr.version()                   # sys.version
+sys.quitter(code)               # sys.exit()
+sys.arguments()                 # sys.argv
+sys.version()                   # sys.version
 ```
 
 ## Exemples Complets
@@ -94,18 +94,18 @@ afficher(f"Trouvé {longueur(fichiers)} fichiers Python")
 
 ```python
 # multilang-python: fr
-depuis multilang_python.stdlib.fr importer json_fr
+depuis multilang_python.stdlib.fr importer json
 
 fonction sauvegarder_config(config, fichier):
     """Sauvegarde une configuration en JSON."""
     avec ouvrir(fichier, 'w') comme f:
-        json_fr.dumper_fichier(config, f)
+        json.dumper_fichier(config, f)
     afficher(f"Configuration sauvegardée dans {fichier}")
 
 fonction charger_config(fichier):
     """Charge une configuration depuis JSON."""
     avec ouvrir(fichier, 'r') comme f:
-        retourner json_fr.charger_fichier(f)
+        retourner json.charger_fichier(f)
 
 # Utilisation
 config = {

@@ -6,10 +6,10 @@ de la bibliothèque standard Python.
 
 Exemple:
     # multilang-python: fr
-    depuis multilang_python.stdlib.fr importer systeme, json_fr
+    depuis multilang_python.stdlib.fr importer systeme, json
 
     si systeme.chemin_existe("fichier.txt"):
-        donnees = json_fr.charger('{"test": 1}')
+        donnees = json.charger('{"test": 1}')
 """
 
 import os
@@ -91,5 +91,5 @@ class SysFr:
 
 # Instances globales pour import direct
 systeme = Systeme()
-json_fr = JsonFr()
-sys_fr = SysFr()
+json = JsonFr()
+sys = SysFr()

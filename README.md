@@ -246,18 +246,18 @@ Use native-language wrappers for Python's standard library:
 
 ```python
 # multilang-python: fr
-depuis multilang_python.stdlib.fr importer systeme, json_fr
+depuis multilang_python.stdlib.fr importer systeme, json
 
 # Use French names for stdlib functions!
 si systeme.chemin_existe("fichier.txt"):
-    donnees = json_fr.charger('{"nom": "test"}')
+    donnees = json.charger('{"nom": "test"}')
     afficher(donnees)
 ```
 
 **Available wrappers:**
 - `systeme` → `os` module (file/directory operations)
-- `json_fr` → `json` module (JSON parsing)
-- `sys_fr` → `sys` module (system operations)
+- `json` → `json` module (JSON parsing)
+- `sys` → `sys` module (system operations)
 
 See [STDLIB_WRAPPERS.md](docs/STDLIB_WRAPPERS.md) for complete documentation.
 
@@ -266,7 +266,7 @@ See [STDLIB_WRAPPERS.md](docs/STDLIB_WRAPPERS.md) for complete documentation.
 - **Efficient regex**: Optimized pattern matching
 - **Minimal overhead**: Translation adds negligible runtime cost
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how to add a new language:
 

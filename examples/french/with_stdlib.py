@@ -6,7 +6,7 @@ Ce fichier montre comment utiliser les modules standards Python
 avec des noms français grâce aux wrappers.
 """
 
-depuis multilang_python.stdlib.fr importer systeme, json_fr
+depuis multilang_python.stdlib.fr importer systeme, json
 
 fonction principale():
     """Démontre l'utilisation des wrappers français."""
@@ -38,12 +38,12 @@ fonction principale():
     }
 
     # Convertir en JSON
-    json_texte = json_fr.dumper(donnees)
+    json_texte = json.dumper(donnees)
     afficher("  - Données en JSON:")
     afficher(f"    {json_texte}")
 
     # Recharger depuis JSON
-    donnees_rechargees = json_fr.charger(json_texte)
+    donnees_rechargees = json.charger(json_texte)
     afficher(f"  - Nom rechargé: {donnees_rechargees['nom']}")
     afficher(f"  - Nombre de langues: {longueur(donnees_rechargees['langues'])}")
 
