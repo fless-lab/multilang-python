@@ -1,10 +1,10 @@
-# 🪟 Installation Windows - multilang-python
+# Installation Windows - multilang-python
 
 Guide spécifique pour installer multilang-python sur Windows.
 
 ---
 
-## ⚡ Installation Rapide
+## Installation Rapide
 
 ### Prérequis
 - Python 3.7+ installé
@@ -47,7 +47,7 @@ multilang-python --version
 
 ---
 
-## 🐛 Problèmes Courants et Solutions
+## Problèmes Courants et Solutions
 
 ### Problème 1: UnicodeDecodeError lors de l'installation
 
@@ -157,7 +157,7 @@ pip install --user -e .
 
 ---
 
-## 🎬 Exécuter les Démos sur Windows
+## Exécuter les Démos sur Windows
 
 ### Démos Individuelles (Simple)
 
@@ -186,7 +186,7 @@ python -m multilang_python demo/05_classes_oop.py
 Créer `demo/RUN_ALL_DEMOS.ps1`:
 ```powershell
 Write-Host "╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║     🎬 DÉMONSTRATION MULTILANG-PYTHON 🎬                  ║" -ForegroundColor Cyan
+Write-Host "║        DÉMONSTRATION MULTILANG-PYTHON                      ║" -ForegroundColor Cyan
 Write-Host "╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 
@@ -210,7 +210,7 @@ foreach ($demo in $demos) {
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 }
 
-Write-Host "`n✅ Démonstration terminée!" -ForegroundColor Green
+Write-Host "`n Démonstration terminée!" -ForegroundColor Green
 ```
 
 Puis exécuter:
@@ -220,7 +220,7 @@ powershell -ExecutionPolicy Bypass -File demo/RUN_ALL_DEMOS.ps1
 
 ---
 
-## 🔧 Configuration Optimale pour Windows
+## Configuration Optimale pour Windows
 
 ### 1. Installer Windows Terminal (Recommandé)
 
@@ -256,7 +256,7 @@ bash demo/RUN_ALL_DEMOS.sh
 
 ---
 
-## 📝 Créer un Fichier Test Rapide
+## Créer un Fichier Test Rapide
 
 ```powershell
 # Créer un fichier de test
@@ -275,7 +275,7 @@ multilang-python test_fr.py
 
 ---
 
-## ✅ Checklist Installation Windows
+## Checklist Installation Windows
 
 - [ ] Python 3.7+ installé (`python --version`)
 - [ ] Git installé (`git --version`)
@@ -288,7 +288,7 @@ multilang-python test_fr.py
 
 ---
 
-## 🆘 Support Supplémentaire
+## Support Supplémentaire
 
 Si les problèmes persistent:
 
@@ -322,11 +322,11 @@ Si les problèmes persistent:
 
 ---
 
-## 🚀 Prêt pour la Démo!
+## Prêt pour la Démo!
 
 Une fois installé, consulte:
 - `QUICKSTART.md` - Guide rapide
 - `CHEATSHEET.md` - Commandes de référence
 - `docs/DEMO_GUIDE.md` - Guide de présentation complet
 
-**Bon courage! 💪**
+**Bon courage!**

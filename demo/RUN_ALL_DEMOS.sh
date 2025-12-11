@@ -97,3 +97,5 @@ echo "║                                                            ║"
 echo "╚════════════════════════════════════════════════════════════╝"
 echo ""
 echo "Merci! 🎉"
+
+# Here i (Raouf) state that this script is AI Generated

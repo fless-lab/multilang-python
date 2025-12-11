@@ -6,18 +6,18 @@
 
 **multilang-python** is an open-source transpiler that enables Python code to be written in any native language. Write Python using keywords and built-in functions in your mother tongue (e.g., French `fonction` → `def`, `afficher` → `print`) and execute it like standard Python. Perfect for education, accessibility, and international communities.
 
-## ✨ Features
+## Features
 
-- **🌍 7 Languages Supported**: French, Spanish, German, Portuguese, Italian, Arabic (transliterated), Chinese (Pinyin)
-- **📦 Zero Dependencies**: Uses only Python standard library
-- **🚀 Easy to Use**: Simple language header, instant execution
-- **🔧 Extensible**: Add new languages via JSON files
-- **⚡ High Performance**: Optimized with intelligent caching
-- **🛡️ Robust**: Protects strings and comments from translation
-- **✅ Well-Tested**: Comprehensive test suite with 25+ tests
-- **🎓 Educational**: Perfect for teaching Python to non-English speakers
+- **7 Languages Supported**: French, Spanish, German, Portuguese, Italian, Arabic (transliterated), Chinese (Pinyin)
+- **Zero Dependencies**: Uses only Python standard library
+- **Easy to Use**: Simple language header, instant execution
+- **Extensible**: Add new languages via JSON files
+- **High Performance**: Optimized with intelligent caching
+- **Robust**: Protects strings and comments from translation
+- **Well-Tested**: Comprehensive test suite with 25+ tests
+- **Educational**: Perfect for teaching Python to non-English speakers
 
-## 🌐 Supported Languages
+## Supported Languages
 
 | Language | Code | Example Keyword | Status |
 |----------|------|-----------------|--------|
@@ -34,7 +34,7 @@
 - ✅ 60+ built-in functions
 - ✅ Full test coverage
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Python 3.7+ (3.10+ recommended)
@@ -58,7 +58,7 @@ multilang-python --version
 # Output: multilang-python 0.1.0
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Write code in your language
 
@@ -103,11 +103,11 @@ multilang-python hello.py --output hello_translated.py
 multilang-python hello.py --lang fr
 ```
 
-### 3. See the magic ✨
+### 3. See the magic
 
 Your native-language code runs just like standard Python!
 
-## 📚 More Examples
+## More Examples
 
 ### French Calculator
 ```python
@@ -177,7 +177,7 @@ multilang-python --version
 python -m multilang_python <file.py>
 ```
 
-## 🔧 Developer Tools
+## Developer Tools
 
 ### Validate language files
 ```bash
@@ -200,7 +200,7 @@ pytest tests/ -v
 pytest tests/unit/test_transpiler.py -v
 ```
 
-## 📖 How It Works
+## How It Works
 
 1. **Parse**: Reads your source file and detects the language from the header
 2. **Protect**: Preserves strings, comments, and docstrings from translation
@@ -219,7 +219,7 @@ def calculer(x):
     return x * 2
 ```
 
-## 🌟 Key Features Explained
+## Key Features Explained
 
 ### String & Comment Protection
 Multilang-python intelligently protects string literals and comments:
@@ -305,28 +305,28 @@ pytest tests/unit/test_transpiler.py
 
 See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidelines.
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built for educators, students, and developers worldwide
 - Inspired by the need for programming accessibility
 - Community-driven with ❤️
 
-## 📞 Support & Community
+## Support & Community
 
 - **Issues**: [GitHub Issues](https://github.com/fless-lab/multilang-python/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/fless-lab/multilang-python/discussions)
-- **Contribute**: See [CONTRIBUTING.md](docs/CONTRIBUTING.md)
+- **Contribute**: See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] More languages (Russian, Japanese, Hindi, etc.)
 - [ ] IDE plugins (VSCode, PyCharm)
 - [ ] Error messages in native languages
-- [ ] Standard library translation
+- [ ] Standard library translation (comprehensive support)
 - [ ] Interactive web playground
 - [ ] VS Code syntax highlighting
 

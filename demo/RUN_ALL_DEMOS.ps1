@@ -124,3 +124,6 @@ Write-Host "╚═════════════════════�
 Write-Host ""
 Write-Host "Merci! 🎉" -ForegroundColor $ColorSuccess
 Write-Host ""
+
+
+# Here i (Raouf) state that this script is AI Generated
