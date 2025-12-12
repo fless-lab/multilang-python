@@ -1,5 +1,5 @@
 import logging
-import os
+
 
 def setup_logging():
     """Set up basic logging configuration."""
@@ -12,6 +12,7 @@ def setup_logging():
         ]
     )
     return logging.getLogger('multilang_python')
+
 
 def read_file(file_path, as_json=False):
     """Read a file with UTF-8 encoding.
@@ -29,6 +30,7 @@ def read_file(file_path, as_json=False):
         if as_json:
             return json.loads(content)
         return content
+
 
 def write_file(file_path, content):
     """Write content to a file with UTF-8 encoding."""

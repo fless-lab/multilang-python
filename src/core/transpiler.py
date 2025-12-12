@@ -4,6 +4,7 @@ import json
 from .cache import TranslationCache
 from .errors import TranspilerError, LanguageNotFoundError
 
+
 class Transpiler:
     def __init__(self, lang_code=None, lang_file=None):
         """Initialize with a language code or file."""
@@ -11,18 +12,22 @@ class Transpiler:
         if lang_file:
             self.lang_file = lang_file
         elif lang_code:
-            self.lang_file = os.path.join(os.path.dirname(__file__), '..', 'languages', f'{lang_code}.json')
+            lang_dir = os.path.join(os.path.dirname(__file__), '..')
+            self.lang_file = os.path.join(lang_dir, 'languages',
+                                          f'{lang_code}.json')
         else:
             raise TranspilerError("Language code or file must be provided.")
         if not os.path.exists(self.lang_file):
-            raise LanguageNotFoundError(f"Language file {self.lang_file} not found.")
+            msg = f"Language file {self.lang_file} not found."
+            raise LanguageNotFoundError(msg)
         with open(self.lang_file, 'r', encoding='utf-8') as f:
             self.translations = json.load(f)
 
     @staticmethod
     def get_language_from_header(code):
         """Extract language code from file header."""
-        match = re.match(r'#\s*multilang-python:\s*(\w+)\s*\n', code, re.IGNORECASE)
+        pattern = r'#\s*multilang-python:\s*(\w+)\s*\n'
+        match = re.match(pattern, code, re.IGNORECASE)
         return match.group(1) if match else None
 
     def translate(self, code):
@@ -34,7 +39,8 @@ class Transpiler:
 
         translated = code
         # Remove the header if present
-        translated = re.sub(r'#\s*multilang-python:\s*\w+\s*\n', '', translated, 1)
+        header_pattern = r'#\s*multilang-python:\s*\w+\s*\n'
+        translated = re.sub(header_pattern, '', translated, 1)
 
         # Extract and protect string literals and comments
         protected_items = []
@@ -47,12 +53,15 @@ class Transpiler:
             item_counter[0] += 1
             return placeholder
 
-        # Protect triple-quoted strings first (they can contain quotes and newlines)
-        translated = re.sub(r'"""[\s\S]*?"""|\'\'\'[\s\S]*?\'\'\'', protect_item, translated)
+        # Protect triple-quoted strings first
+        triple_pattern = r'"""[\s\S]*?"""|' + "'''[\\s\\S]*?'''"
+        translated = re.sub(triple_pattern, protect_item, translated)
         # Then protect regular strings
-        translated = re.sub(r'"(?:[^"\\]|\\.)*"|\'(?:[^\'\\]|\\.)*\'', protect_item, translated)
+        string_pattern = (r'"(?:[^"\\]|\\.)*"|' + r"'(?:[^'\\]|\\.)*'")
+        translated = re.sub(string_pattern, protect_item, translated)
         # Protect comments (but not the multilang-python header)
-        translated = re.sub(r'(?<!multilang-python:)#[^\n]*', protect_item, translated)
+        comment_pattern = r'(?<!multilang-python:)#[^\n]*'
+        translated = re.sub(comment_pattern, protect_item, translated)
 
         # Translate keywords and builtins
         # Format: {native_word: python_word}
@@ -60,7 +69,9 @@ class Transpiler:
         patterns = {
             python_word: re.compile(r'\b' + re.escape(native_word) + r'\b')
             for category in ['keywords', 'builtins']
-            for native_word, python_word in self.translations.get(category, {}).items()
+            for native_word, python_word in (
+                self.translations.get(category, {}).items()
+            )
         }
         for python_word, pattern in patterns.items():
             translated = pattern.sub(python_word, translated)

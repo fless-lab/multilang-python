@@ -1,5 +1,3 @@
-import os
-import sys
 import pytest
 from multilang_python.core.transpiler import Transpiler
 from multilang_python.core.errors import TranspilerError, LanguageNotFoundError
@@ -294,7 +292,8 @@ class TestAllLanguages:
 
         # Get print keyword from language file (format: {native: python})
         # Find the native word that maps to "print"
-        print_keyword = [k for k, v in trans.translations["builtins"].items() if v == "print"][0]
+        print_keyword = [k for k, v in trans.translations["builtins"].items()
+                         if v == "print"][0]
 
         code = f"""# multilang-python: {lang_code}
 {print_keyword}("Hello World")

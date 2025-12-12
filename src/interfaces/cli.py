@@ -1,23 +1,27 @@
 import sys
 import os
 from multilang_python.core.transpiler import Transpiler
-from multilang_python.core.utils import read_file, write_file, setup_logging
+from multilang_python.core.utils import read_file, write_file
+from multilang_python.core.utils import setup_logging
+
 
 def main():
     """Main CLI for multilang-python."""
     logger = setup_logging()
 
     if len(sys.argv) < 2:
-        print("Usage: multilang-python <input_file> [--output <output_file>] [--lang <lang>] [--list-langs] [--version]")
+        msg = ("Usage: multilang-python <input_file> [--output <output_file>]"
+               " [--lang <lang>] [--list-langs] [--version]")
+        print(msg)
         sys.exit(1)
 
     if sys.argv[1] == '--version':
         print("multilang-python 0.1.0")
-        sys.exit(0)
-
     if sys.argv[1] == '--list-langs':
         lang_dir = os.path.join(os.path.dirname(__file__), '..', 'languages')
-        langs = [f.split('.')[0] for f in os.listdir(lang_dir) if f.endswith('.json') and f != 'template.json' and f != 'schema.json']
+        langs = [f.split('.')[0] for f in os.listdir(lang_dir)
+                 if f.endswith('.json')
+                 and f not in ('template.json', 'schema.json')]
         print("Available languages:", langs)
         sys.exit(0)
 
@@ -47,7 +51,9 @@ def main():
     if not lang_code:
         lang_code = Transpiler.get_language_from_header(code)
         if not lang_code:
-            print("Error: No language specified. Use '# multilang-python: <lang>' header or --lang <lang>.")
+            msg = ("Error: No language specified. Use '# multilang-python: "
+                   "<lang>' header or --lang <lang>.")
+            print(msg)
             sys.exit(1)
 
     try:
@@ -75,6 +81,7 @@ def main():
     except Exception as e:
         logger.error(f"Execution error: {e}")
         print(f"Execution error: {e}")
+
 
 if __name__ == '__main__':
     main()

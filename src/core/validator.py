@@ -2,11 +2,13 @@ import json
 import os
 from .errors import ValidationError
 
+
 class LanguageValidator:
     def __init__(self, schema_file=None):
         """Initialize with an optional schema file."""
         if schema_file is None:
-            schema_file = os.path.join(os.path.dirname(__file__), '..', 'languages', 'schema.json')
+            lang_dir = os.path.join(os.path.dirname(__file__), '..')
+            schema_file = os.path.join(lang_dir, 'languages', 'schema.json')
         with open(schema_file, 'r', encoding='utf-8') as f:
             self.schema = json.load(f)
 
@@ -15,8 +17,11 @@ class LanguageValidator:
         required_sections = self.schema.get('required_sections', [])
         for section in required_sections:
             if section not in lang_data:
-                raise ValidationError(f"Missing required section: {section}")
+                msg = f"Missing required section: {section}"
+                raise ValidationError(msg)
             if not isinstance(lang_data[section], dict):
-                raise ValidationError(f"Section {section} must be a dictionary")
+                msg = f"Section {section} must be a dictionary"
+                raise ValidationError(msg)
             if not lang_data[section]:
-                raise ValidationError(f"Section {section} cannot be empty")
+                msg = f"Section {section} cannot be empty"
+                raise ValidationError(msg)

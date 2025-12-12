@@ -4,6 +4,7 @@ import os
 import sys
 from multilang_python.core.utils import read_file
 
+
 def validate_language_file(lang_file):
     """Validate a language JSON file against schema and template."""
     # Load schema
@@ -25,7 +26,8 @@ def validate_language_file(lang_file):
     try:
         jsonschema.validate(instance=lang_data, schema=schema)
     except jsonschema.ValidationError as e:
-        print(f"Error: {lang_file} is invalid: {e.message}")
+        msg = f"Error: {lang_file} is invalid: {e.message}"
+        print(msg)
         sys.exit(1)
 
     # Validate mappings against template
@@ -33,10 +35,13 @@ def validate_language_file(lang_file):
         template_values = template.get(category, [])
         for native, python in lang_data.get(category, {}).items():
             if python not in template_values:
-                print(f"Error: {lang_file} contains invalid {category} mapping: '{native}' -> '{python}'")
+                msg = (f"Error: {lang_file} contains invalid {category} "
+                       f"mapping: '{native}' -> '{python}'")
+                print(msg)
                 sys.exit(1)
 
     print(f"Language file {lang_file} is valid.")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
